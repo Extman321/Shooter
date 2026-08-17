@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cg0pnpbw5vuln" path="res://Cenas/parallax_background.gd" id="3_reiul"]
 [ext_resource type="Texture2D" uid="uid://dyxfyioigwo2t" path="res://assetpack/parallax/skies/Sky_back_mountain.png" id="4_reiul"]
 [ext_resource type="Texture2D" uid="uid://cliod7tu2f64e" path="res://assetpack/parallax/skies/sky_front_mountain.png" id="5_xmmbr"]
+[ext_resource type="Script" uid="uid://bysauvqhj3vyx" path="res://scripts/gerador_inimigos.gd" id="7_xmmbr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ekxr"]
 size = Vector2(151, 85)
@@ -147,3 +148,12 @@ texture = ExtResource("5_xmmbr")
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4" unique_id=791924296]
 position = Vector2(573, -153.49997)
 scale = Vector2(0.6031579, 0.569)
+
+[node name="GeradorInimigos" type="Node2D" parent="." unique_id=983856907]
+script = ExtResource("7_xmmbr")
+
+[node name="Timer" type="Timer" parent="GeradorInimigos" unique_id=1378931718]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="GeradorInimigos/Timer" to="GeradorInimigos" method="_on_timer_timeout"]
